@@ -1,0 +1,38 @@
+.notfound {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  text-align: center;
+}
+
+.notfound__code {
+  font-size: 8rem;
+  font-weight: 900;
+  letter-spacing: -0.05em;
+  background: linear-gradient(135deg, var(--neon-primary), var(--neon-cyan));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.notfound__msg {
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+  margin-bottom: 32px;
+}
+
+.notfound__link {
+  padding: 12px 28px;
+  border: 1px solid var(--neon-primary);
+  border-radius: var(--radius-badge);
+  color: var(--neon-primary);
+  font-weight: 600;
+  transition: background 0.2s, color 0.2s;
+}
+
+.notfound__link:hover {
+  background: var(--neon-primary);
+  color: #fff;
+}

@@ -1,0 +1,24 @@
+:root {
+  --card-accent: #8b5cf6;
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(139, 92, 246, 0.2);
+  border-color: color-mix(in srgb, var(--card-accent) 30%, transparent);
+  border-radius: var(--radius-card);
+  box-shadow: 0 0 30px color-mix(in srgb, var(--card-accent) 8%, transparent);
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.glass-card--hoverable {
+  cursor: pointer;
+}
+
+.glass-card--hoverable:hover {
+  border-color: color-mix(in srgb, var(--card-accent) 55%, transparent);
+  box-shadow: 0 0 40px color-mix(in srgb, var(--card-accent) 20%, transparent),
+              0 8px 32px rgba(0,0,0,0.4);
+}

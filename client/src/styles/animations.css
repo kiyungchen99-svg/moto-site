@@ -1,0 +1,13 @@
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 8px var(--neon-primary); }
+  50%       { box-shadow: 0 0 20px var(--neon-primary), 0 0 40px var(--neon-primary); }
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes spin-ring {
+  to { transform: rotate(360deg); }
+}

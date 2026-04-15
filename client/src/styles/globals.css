@@ -1,0 +1,51 @@
+@import '@fontsource/inter/400.css';
+@import '@fontsource/inter/700.css';
+@import '@fontsource/inter/900.css';
+
+:root {
+  --bg-base:        #0d0e14;
+  --bg-surface:     #13141f;
+  --bg-elevated:    #1a1b2e;
+  --neon-primary:   #8b5cf6;
+  --neon-cyan:      #00f0ff;
+  --neon-pink:      #ff007a;
+  --text-primary:   #ffffff;
+  --text-secondary: #a0a0b8;
+  --text-muted:     #4a4a6a;
+  --border-subtle:  rgba(139, 92, 246, 0.18);
+  --radius-card:    20px;
+  --radius-badge:   999px;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg-base);
+  color: var(--text-primary);
+  font-family: 'Inter', sans-serif;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg-base); }
+::-webkit-scrollbar-thumb { background: var(--neon-primary); border-radius: 3px; }
+
+a { color: inherit; text-decoration: none; }
+
+img { max-width: 100%; display: block; }
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}

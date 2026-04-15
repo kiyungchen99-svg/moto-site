@@ -1,0 +1,16 @@
+:root {
+  --badge-color: #8b5cf6;
+}
+
+.neon-badge {
+  display: inline-block;
+  padding: 3px 12px;
+  border-radius: var(--radius-badge);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--badge-color);
+  border: 1px solid color-mix(in srgb, var(--badge-color) 50%, transparent);
+  background: color-mix(in srgb, var(--badge-color) 10%, transparent);
+}

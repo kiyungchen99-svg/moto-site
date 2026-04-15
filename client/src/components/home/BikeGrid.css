@@ -1,0 +1,73 @@
+.bike-grid-section {
+  padding: 80px 0;
+}
+
+.bike-grid-section__title {
+  font-size: 2rem;
+  font-weight: 900;
+  margin-bottom: 40px;
+  letter-spacing: -0.02em;
+}
+
+.bike-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 24px;
+}
+
+.bike-card {
+  overflow: hidden;
+}
+
+.bike-card__img-wrap {
+  height: 200px;
+  overflow: hidden;
+  border-radius: var(--radius-card) var(--radius-card) 0 0;
+}
+
+.bike-card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.bike-card:hover .bike-card__img {
+  transform: scale(1.05);
+}
+
+.bike-card__img-placeholder {
+  width: 100%;
+  height: 100%;
+}
+
+.bike-card__body {
+  padding: 20px 24px 24px;
+}
+
+.bike-card__meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.bike-card__year {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+}
+
+.bike-card__name {
+  font-size: 1.4rem;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  margin-bottom: 8px;
+}
+
+.bike-card__tagline {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}

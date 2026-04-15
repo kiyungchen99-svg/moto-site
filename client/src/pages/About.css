@@ -1,0 +1,21 @@
+.about {
+  padding: 120px 0 80px;
+}
+
+.about__title {
+  font-size: 3rem;
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  margin-bottom: 32px;
+}
+
+.about__card {
+  padding: 40px;
+  max-width: 680px;
+}
+
+.about__bio {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  line-height: 1.9;
+}

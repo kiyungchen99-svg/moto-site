@@ -1,0 +1,221 @@
+.bike-detail__hero {
+  position: relative;
+  height: 65vh;
+  min-height: 400px;
+  overflow: hidden;
+}
+
+.bike-detail__hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.bike-detail__hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(13,14,20,1) 0%, rgba(13,14,20,0.4) 50%, transparent 100%);
+}
+
+.bike-detail__hero-content {
+  position: absolute;
+  bottom: 48px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.bike-detail__title {
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+
+.bike-detail__tagline {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+}
+
+.bike-detail__body {
+  padding: 60px 0 80px;
+}
+
+.bike-detail__section {
+  margin-bottom: 60px;
+}
+
+.bike-detail__section-title {
+  font-size: 1.5rem;
+  font-weight: 900;
+  margin-bottom: 24px;
+  letter-spacing: -0.02em;
+  color: var(--bike-accent, var(--neon-primary));
+}
+
+/* Gallery */
+.bike-detail__gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 12px;
+}
+
+.bike-detail__gallery-img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.bike-detail__gallery-img:hover {
+  transform: scale(1.03);
+}
+
+/* Specs */
+.bike-detail__specs {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 16px;
+}
+
+.bike-detail__spec-group {
+  padding: 20px 24px;
+}
+
+.spec-group__cat {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 16px;
+}
+
+.spec-table { width: 100%; border-collapse: collapse; }
+
+.spec-table__row:hover {
+  background: rgba(139, 92, 246, 0.06);
+}
+
+.spec-table__label,
+.spec-table__value {
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border-subtle);
+  font-size: 0.9rem;
+}
+
+.spec-table__label { color: var(--text-secondary); width: 50%; }
+
+.spec-table__value {
+  color: var(--text-primary);
+  font-family: 'Courier New', monospace;
+  font-weight: 600;
+  text-align: right;
+}
+
+/* Timeline */
+.bike-detail__timeline {
+  position: relative;
+  padding-left: 32px;
+}
+
+.bike-detail__timeline::before {
+  content: '';
+  position: absolute;
+  left: 6px;
+  top: 8px;
+  bottom: 0;
+  width: 2px;
+  background: var(--border-subtle);
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 36px;
+}
+
+.timeline-item__dot {
+  position: absolute;
+  left: -29px;
+  top: 6px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  box-shadow: 0 0 10px currentColor;
+}
+
+.timeline-item__date {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+
+.timeline-item__milestone {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin: 4px 0 8px;
+}
+
+.timeline-item__desc {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+/* Features */
+.bike-detail__features {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+}
+
+.feature-card {
+  flex: 0 0 240px;
+  padding: 24px;
+}
+
+.feature-card__icon {
+  font-size: 2rem;
+  display: block;
+  margin-bottom: 12px;
+}
+
+.feature-card__title {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.feature-card__desc {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+}
+
+/* Riding Style */
+.bike-detail__riding {
+  padding: 28px 32px;
+}
+
+.riding__terrain {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.riding__type {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.riding__desc {
+  color: var(--text-secondary);
+  line-height: 1.8;
+}
