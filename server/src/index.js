@@ -8,6 +8,7 @@ import { fileURLToPath } from 'url';
 import connectDB from './config/db.js';
 import motorcyclesRouter from './routes/motorcycles.js';
 import profileRouter from './routes/profile.js';
+import messagesRouter from './routes/messages.js';
 import errorHandler from './middleware/errorHandler.js';
 
 await connectDB();
@@ -25,6 +26,7 @@ app.use(express.json());
 app.get('/api/health', (_req, res) => res.json({ status: 'ok' }));
 app.use('/api/motorcycles', motorcyclesRouter);
 app.use('/api/profile', profileRouter);
+app.use('/api/messages', messagesRouter);
 
 // Serve built React app in production
 if (isProd) {

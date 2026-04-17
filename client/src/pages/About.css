@@ -18,4 +18,19 @@
   font-size: 1.1rem;
   color: var(--text-secondary);
   line-height: 1.9;
+  margin-bottom: 24px;
+}
+
+.about__email {
+  display: inline-block;
+  font-size: 0.95rem;
+  color: var(--neon-primary);
+  border-bottom: 1px solid rgba(139, 92, 246, 0.4);
+  padding-bottom: 2px;
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.about__email:hover {
+  color: var(--neon-cyan);
+  border-color: var(--neon-cyan);
 }

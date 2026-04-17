@@ -4,8 +4,9 @@ import { motion } from 'framer-motion';
 import './Navbar.css';
 
 const links = [
-  { to: '/',      label: 'Home' },
-  { to: '/about', label: 'About' }
+  { to: '/',           label: 'Home' },
+  { to: '/about',      label: 'About' },
+  { to: '/guestbook',  label: '留言板' }
 ];
 
 export default function Navbar() {

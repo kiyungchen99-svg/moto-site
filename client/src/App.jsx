@@ -6,6 +6,7 @@ import Footer from './components/layout/Footer';
 import Home from './pages/Home';
 import BikeDetail from './pages/BikeDetail';
 import About from './pages/About';
+import Guestbook from './pages/Guestbook';
 import NotFound from './pages/NotFound';
 
 const queryClient = new QueryClient();
@@ -18,6 +19,7 @@ function AnimatedRoutes() {
         <Route path="/" element={<Home />} />
         <Route path="/bikes/:slug" element={<BikeDetail />} />
         <Route path="/about" element={<About />} />
+        <Route path="/guestbook" element={<Guestbook />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </AnimatePresence>

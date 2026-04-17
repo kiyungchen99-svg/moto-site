@@ -6,10 +6,21 @@
 
 .footer__inner {
   display: flex;
-  justify-content: center;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .footer__text {
   color: var(--text-muted);
   font-size: 0.875rem;
+}
+
+.footer__email {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  transition: color 0.2s;
+}
+
+.footer__email:hover {
+  color: var(--neon-primary);
 }
