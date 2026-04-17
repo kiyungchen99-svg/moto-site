@@ -4,6 +4,7 @@ import PageWrapper from '../components/layout/PageWrapper';
 import NeonBadge from '../components/ui/NeonBadge';
 import Loader from '../components/ui/Loader';
 import GlassCard from '../components/ui/GlassCard';
+import SEO from '../components/ui/SEO';
 import './BikeDetail.css';
 
 export default function BikeDetail() {
@@ -16,8 +17,16 @@ export default function BikeDetail() {
   const cover = bike.photos?.find(p => p.isCover) || bike.photos?.[0];
   const otherPhotos = bike.photos?.filter(p => !p.isCover) || [];
 
+  const coverUrl = cover ? `https://moto-site-production.up.railway.app${cover.url}` : undefined;
+
   return (
     <PageWrapper>
+      <SEO
+        title={bike.name}
+        description={`${bike.tagline} — ${bike.ridingStyle?.description?.slice(0, 100) || '義大利手工鋼管公路車'}...`}
+        image={coverUrl}
+        path={`/bikes/${bike.slug}`}
+      />
       <div style={{ '--bike-accent': bike.accentColor }}>
         {/* Hero */}
         <div className="bike-detail__hero">

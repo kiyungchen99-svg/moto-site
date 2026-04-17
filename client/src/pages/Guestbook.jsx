@@ -3,6 +3,7 @@ import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { motion, AnimatePresence } from 'framer-motion';
 import PageWrapper from '../components/layout/PageWrapper';
 import GlassCard from '../components/ui/GlassCard';
+import SEO from '../components/ui/SEO';
 import { getMessages, postMessage } from '../services/api';
 import './Guestbook.css';
 
@@ -36,6 +37,11 @@ export default function Guestbook() {
 
   return (
     <PageWrapper>
+      <SEO
+        title="留言板"
+        description="留下你對 Steel & Soul 的話語，與義大利鋼管公路車愛好者交流。"
+        path="/guestbook"
+      />
       <div className="guestbook container">
         <h1 className="guestbook__title">留言板</h1>
         <p className="guestbook__sub">留下你的名字與話語</p>
