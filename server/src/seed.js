@@ -170,22 +170,26 @@ await Motorcycle.insertMany([
   {
     slug: 'masi-3v-volumetrica',
     name: 'MASI 3V Volumetrica',
-    tagline: 'Henry James 勾爪 × 三角管形，美義混血的工藝',
-    year: 1995,
+    tagline: '全球限量 25 台 · 2006 加州廠復刻 · NOS Henry James 不銹鋼勾爪',
+    year: 2006,
     status: 'Complete',
     accentColor: '#ff007a',
     order: 4,
     photos: [
       { url: '/bikes/MASI/IMG_0307.JPG', isCover: true,  caption: 'MASI 3V 全車' },
-      { url: '/bikes/MASI/IMG_0308.JPG', isCover: false, caption: '3V 三角管截面' },
-      { url: '/bikes/MASI/IMG_0309.JPG', isCover: false, caption: 'Henry James 勾爪特寫' },
-      { url: '/bikes/MASI/IMG_0320.JPG', isCover: false, caption: '五通細節' }
+      { url: '/bikes/MASI/IMG_0308.JPG', isCover: false, caption: '3V Volumetrica 管形細節' },
+      { url: '/bikes/MASI/IMG_0309.JPG', isCover: false, caption: 'Henry James 不銹鋼勾爪特寫' },
+      { url: '/bikes/MASI/IMG_0320.JPG', isCover: false, caption: '原廠 80 年代 Lug 接頭' }
     ],
     specs: {
       frame: [
-        { category: 'Frame', label: '型號',   value: '3V Volumetrica' },
-        { category: 'Frame', label: '管形',   value: '三角形截面（3V / Triangular）' },
-        { category: 'Frame', label: '勾爪',   value: 'Henry James 手工鍛造勾爪' }
+        { category: 'Frame', label: '型號',     value: '3V Volumetrica（限量 25 台）' },
+        { category: 'Frame', label: '管形',     value: 'Volumetrica 3V 內接頭（無外露 Lug）' },
+        { category: 'Frame', label: 'Lug',      value: '80 年代 Masi 加州廠原廠 Lug（非復刻）' },
+        { category: 'Frame', label: '勾爪',     value: 'Henry James 不銹鋼版（NOS 原廠未拆封）' },
+        { category: 'Frame', label: '塗裝',     value: 'Cyclesmith 烤漆廠噴製（Masi 加州廠指定）' },
+        { category: 'Frame', label: '製作者',   value: 'Ted Kirkbride（前廠長）× Russ Denny（前工匠）' },
+        { category: 'Frame', label: '生產年份', value: '2006 年' }
       ],
       engine:     [],
       suspension: [],
@@ -194,18 +198,23 @@ await Motorcycle.insertMany([
       dimensions: []
     },
     buildTimeline: [
-      { date: '1990 年代中', milestone: '3V Volumetrica 發表', description: 'MASI 以三角形截面管材挑戰傳統圓管設計，提供更高的截面慣性矩。' },
-      { date: '—',          milestone: 'Henry James 勾爪',    description: '採用美國 Henry James 手工鍛造勾爪，展現美義工藝跨界合作。' }
+      { date: '1980 年代', milestone: 'Lug 原料封存', description: 'Masi 加州廠生產期間留存的原廠 Lug，數十年後成為這批限量車的靈魂。' },
+      { date: '2006 年',   milestone: '加州廠復刻燒製', description: '前廠長 Ted Kirkbride 與前工匠 Russ Denny 以封存的原廠 Lug 限量燒製 25 台，並在 Masi USA 官方網站正式登錄。' },
+      { date: '2006 年',   milestone: 'Cyclesmith 塗裝', description: 'Masi 加州廠指定烤漆廠 Cyclesmith 完成噴漆，實車極美。' },
+      { date: '入手至今', milestone: 'NOS 勾爪原封未拆', description: 'Henry James 不銹鋼勾爪從購入至今包裝從未拆封，是 NOS 中的 NOS。' }
     ],
     uniqueFeatures: [
-      { title: '3V 三角管截面', description: 'Volumetrica 的三角形截面管在相同重量下提供更高剛性，是對傳統圓管的大膽挑戰。', iconEmoji: '🔺' },
-      { title: 'Henry James 勾爪', description: '美國頂級手工鍛造勾爪，精度與強度兼具，是整台車最具收藏話題的零件。',       iconEmoji: '🔧' }
+      { title: '全球限量 25 台',       description: '全球僅生產 25 台，登錄於 Masi USA 官方網站，是收藏家眼中的「夢幻逸品」等級物件。',                         iconEmoji: '🏆' },
+      { title: '3V 內 Lug 工藝',       description: 'Volumetrica 內接頭技術讓車身視覺比傳統套管更簡潔流線，結構剛性更佳。',                                     iconEmoji: '🔺' },
+      { title: '原廠 80 年代 Lug',     description: '使用 Masi 加州廠 80 年代封存的原廠 Lug，並非任何復刻品，稀缺性無法取代。',                                 iconEmoji: '🕰️' },
+      { title: 'NOS Henry James 勾爪', description: '美國傳奇零件廠 Henry James 為 Masi 規格設計的不銹鋼勾爪，購入至今原廠包裝從未拆封，完美 NOS。',           iconEmoji: '✨' },
+      { title: 'Cyclesmith 烤漆',      description: 'Masi 加州廠指定烤漆廠親手噴製，是這批限量車最後一道美麗。',                                               iconEmoji: '🎨' }
     ],
     ridingStyle: {
-      terrain:    ['長途公路', '爬坡'],
-      rideType:   '均衡全能型',
-      ergonomics: '舒適的義大利幾何',
-      description: '3V 的剛性比一般圓管鋼車更直接，但保留了鋼管特有的路感回饋。Henry James 勾爪讓整台車的精緻感提升一個層次，每次調整後輪都是享受。'
+      terrain:    ['長途公路', '爬坡', '收藏展示'],
+      rideType:   '工藝典藏 × 實騎體驗',
+      ergonomics: '加州 Masi 幾何，舒適而不失活潑',
+      description: '這台車的每一個細節都是歷史。80 年代的 Lug、2006 年加州師傅的手工焊接、從未拆封的 Henry James 勾爪——騎上去的瞬間你知道自己坐在一件活的文物上。3V 管形給你直接的力量回饋，但你腦中同時想的是：這台車全世界只有 25 台。'
     }
   },
 
