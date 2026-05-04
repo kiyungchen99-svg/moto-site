@@ -1,5 +1,5 @@
 node_modules
 .env
 dist
-client/dist
+# client/dist is committed so Railway can serve without rebuilding
 *.log
