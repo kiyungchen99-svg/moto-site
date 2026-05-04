@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { AnimatePresence } from 'framer-motion';
 import { HelmetProvider } from 'react-helmet-async';
+import { LanguageProvider } from './contexts/LanguageContext';
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
 import Home from './pages/Home';
@@ -30,6 +31,7 @@ function AnimatedRoutes() {
 export default function App() {
   return (
     <HelmetProvider>
+      <LanguageProvider>
       <QueryClientProvider client={queryClient}>
         <BrowserRouter>
           <Navbar />
@@ -37,6 +39,7 @@ export default function App() {
           <Footer />
         </BrowserRouter>
       </QueryClientProvider>
+      </LanguageProvider>
     </HelmetProvider>
   );
 }

@@ -1,17 +1,19 @@
 import { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import { useLang } from '../../contexts/LanguageContext';
 import './Navbar.css';
-
-const links = [
-  { to: '/',           label: 'Home' },
-  { to: '/about',      label: 'About' },
-  { to: '/guestbook',  label: '留言板' }
-];
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
+  const { t, lang, toggle } = useLang();
+
+  const links = [
+    { to: '/',          label: t.nav.home },
+    { to: '/about',     label: t.nav.about },
+    { to: '/guestbook', label: t.nav.guestbook },
+  ];
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 60);
@@ -34,6 +36,11 @@ export default function Navbar() {
               </Link>
             </li>
           ))}
+          <li>
+            <button className="navbar__lang-toggle" onClick={toggle} aria-label="Switch language">
+              {lang === 'zh' ? 'EN' : '中'}
+            </button>
+          </li>
         </ul>
       </div>
     </nav>

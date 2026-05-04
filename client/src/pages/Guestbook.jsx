@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import PageWrapper from '../components/layout/PageWrapper';
 import GlassCard from '../components/ui/GlassCard';
 import SEO from '../components/ui/SEO';
+import { useLang } from '../contexts/LanguageContext';
 import { getMessages, postMessage } from '../services/api';
 import './Guestbook.css';
 
@@ -12,6 +13,7 @@ export default function Guestbook() {
   const [name, setName]       = useState('');
   const [message, setMessage] = useState('');
   const [sent, setSent]       = useState(false);
+  const { t, lang } = useLang();
 
   const { data: messages = [], isLoading } = useQuery({
     queryKey: ['messages'],
@@ -35,39 +37,40 @@ export default function Guestbook() {
     mutation.mutate({ name, message });
   };
 
+  const dateLocale = lang === 'zh' ? 'zh-TW' : 'en-US';
+
   return (
     <PageWrapper>
       <SEO
-        title="留言板"
-        description="留下你對 Steel & Soul 的話語，與義大利鋼管公路車愛好者交流。"
+        title={t.guestbook.seoTitle}
+        description={t.guestbook.seoDesc}
         path="/guestbook"
       />
       <div className="guestbook container">
-        <h1 className="guestbook__title">留言板</h1>
-        <p className="guestbook__sub">留下你的名字與話語</p>
+        <h1 className="guestbook__title">{t.guestbook.title}</h1>
+        <p className="guestbook__sub">{t.guestbook.sub}</p>
 
-        {/* 表單 */}
         <GlassCard className="guestbook__form-card">
           <form onSubmit={handleSubmit} className="guestbook__form">
             <div className="guestbook__field">
-              <label className="guestbook__label">名字</label>
+              <label className="guestbook__label">{t.guestbook.labelName}</label>
               <input
                 className="guestbook__input"
                 type="text"
                 value={name}
                 onChange={e => setName(e.target.value)}
-                placeholder="你的名字"
+                placeholder={t.guestbook.placeholderName}
                 maxLength={50}
                 required
               />
             </div>
             <div className="guestbook__field">
-              <label className="guestbook__label">留言</label>
+              <label className="guestbook__label">{t.guestbook.labelMessage}</label>
               <textarea
                 className="guestbook__textarea"
                 value={message}
                 onChange={e => setMessage(e.target.value)}
-                placeholder="寫下你想說的..."
+                placeholder={t.guestbook.placeholderMessage}
                 maxLength={500}
                 rows={4}
                 required
@@ -79,7 +82,7 @@ export default function Guestbook() {
               className="guestbook__submit"
               disabled={mutation.isPending}
             >
-              {mutation.isPending ? '送出中...' : '送出留言'}
+              {mutation.isPending ? t.guestbook.submitting : t.guestbook.submit}
             </button>
             <AnimatePresence>
               {sent && (
@@ -89,19 +92,18 @@ export default function Guestbook() {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0 }}
                 >
-                  留言成功！
+                  {t.guestbook.success}
                 </motion.p>
               )}
             </AnimatePresence>
             {mutation.isError && (
-              <p className="guestbook__error">{mutation.error?.message || '送出失敗，請再試一次'}</p>
+              <p className="guestbook__error">{mutation.error?.message || t.guestbook.error}</p>
             )}
           </form>
         </GlassCard>
 
-        {/* 留言列表 */}
         <div className="guestbook__list">
-          {isLoading && <p className="guestbook__loading">載入中...</p>}
+          {isLoading && <p className="guestbook__loading">{t.guestbook.loading}</p>}
           <AnimatePresence>
             {messages.map((msg, i) => (
               <motion.div
@@ -114,7 +116,7 @@ export default function Guestbook() {
                   <div className="guestbook__msg-header">
                     <span className="guestbook__msg-name">{msg.name}</span>
                     <span className="guestbook__msg-date">
-                      {new Date(msg.createdAt).toLocaleDateString('zh-TW', { year: 'numeric', month: 'short', day: 'numeric' })}
+                      {new Date(msg.createdAt).toLocaleDateString(dateLocale, { year: 'numeric', month: 'short', day: 'numeric' })}
                     </span>
                   </div>
                   <p className="guestbook__msg-text">{msg.message}</p>
@@ -123,7 +125,7 @@ export default function Guestbook() {
             ))}
           </AnimatePresence>
           {!isLoading && messages.length === 0 && (
-            <p className="guestbook__empty">還沒有留言，成為第一個留言的人吧！</p>
+            <p className="guestbook__empty">{t.guestbook.empty}</p>
           )}
         </div>
       </div>

@@ -5,6 +5,7 @@ import GlassCard from '../ui/GlassCard';
 import NeonBadge from '../ui/NeonBadge';
 import Loader from '../ui/Loader';
 import { useMotorcycles } from '../../hooks/useMotorcycles';
+import { useLang } from '../../contexts/LanguageContext';
 import './BikeGrid.css';
 
 const cardVariants = {
@@ -56,14 +57,15 @@ function BikeCard({ bike, index }) {
 export default function BikeGrid() {
   const { data: bikes, isLoading, error } = useMotorcycles();
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
+  const { t } = useLang();
 
   if (isLoading) return <Loader />;
-  if (error) return <p style={{ color: 'var(--neon-pink)', textAlign: 'center' }}>載入失敗</p>;
+  if (error) return <p style={{ color: 'var(--neon-pink)', textAlign: 'center' }}>{t.bikeGrid.error}</p>;
 
   return (
     <section className="bike-grid-section" ref={ref}>
       <div className="container">
-        <h2 className="bike-grid-section__title">我的車庫</h2>
+        <h2 className="bike-grid-section__title">{t.bikeGrid.title}</h2>
         {inView && (
           <div className="bike-grid">
             {bikes?.map((bike, i) => (

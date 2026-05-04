@@ -5,14 +5,16 @@ import NeonBadge from '../components/ui/NeonBadge';
 import Loader from '../components/ui/Loader';
 import GlassCard from '../components/ui/GlassCard';
 import SEO from '../components/ui/SEO';
+import { useLang } from '../contexts/LanguageContext';
 import './BikeDetail.css';
 
 export default function BikeDetail() {
   const { slug } = useParams();
   const { data: bike, isLoading, error } = useBike(slug);
+  const { t } = useLang();
 
   if (isLoading) return <Loader />;
-  if (error || !bike) return <p style={{ color: 'var(--neon-pink)', textAlign: 'center', paddingTop: '120px' }}>找不到這台車</p>;
+  if (error || !bike) return <p style={{ color: 'var(--neon-pink)', textAlign: 'center', paddingTop: '120px' }}>{t.bikeDetail.notFound}</p>;
 
   const cover = bike.photos?.find(p => p.isCover) || bike.photos?.[0];
   const otherPhotos = bike.photos?.filter(p => !p.isCover) || [];
@@ -23,7 +25,7 @@ export default function BikeDetail() {
     <PageWrapper>
       <SEO
         title={bike.name}
-        description={`${bike.tagline} — ${bike.ridingStyle?.description?.slice(0, 100) || '義大利手工鋼管公路車'}...`}
+        description={`${bike.tagline} — ${bike.ridingStyle?.description?.slice(0, 100) || t.bikeDetail.seoSuffix}...`}
         image={coverUrl}
         path={`/bikes/${bike.slug}`}
       />
@@ -43,7 +45,7 @@ export default function BikeDetail() {
           {/* Photo gallery */}
           {otherPhotos.length > 0 && (
             <section className="bike-detail__section">
-              <h2 className="bike-detail__section-title">圖庫</h2>
+              <h2 className="bike-detail__section-title">{t.bikeDetail.gallery}</h2>
               <div className="bike-detail__gallery">
                 {otherPhotos.map((p, i) => (
                   <img key={i} src={p.url} alt={p.caption || ''} className="bike-detail__gallery-img" />
@@ -55,7 +57,7 @@ export default function BikeDetail() {
           {/* Specs */}
           {Object.values(bike.specs || {}).some(arr => arr.length > 0) && (
             <section className="bike-detail__section">
-              <h2 className="bike-detail__section-title">規格</h2>
+              <h2 className="bike-detail__section-title">{t.bikeDetail.specs}</h2>
               <div className="bike-detail__specs">
                 {Object.entries(bike.specs).map(([cat, items]) =>
                   items.length > 0 && (
@@ -81,7 +83,7 @@ export default function BikeDetail() {
           {/* Build Timeline */}
           {bike.buildTimeline?.length > 0 && (
             <section className="bike-detail__section">
-              <h2 className="bike-detail__section-title">組裝歷程</h2>
+              <h2 className="bike-detail__section-title">{t.bikeDetail.buildTimeline}</h2>
               <div className="bike-detail__timeline">
                 {bike.buildTimeline.map((event, i) => (
                   <div key={i} className="timeline-item">
@@ -100,7 +102,7 @@ export default function BikeDetail() {
           {/* Unique Features */}
           {bike.uniqueFeatures?.length > 0 && (
             <section className="bike-detail__section">
-              <h2 className="bike-detail__section-title">特色亮點</h2>
+              <h2 className="bike-detail__section-title">{t.bikeDetail.highlights}</h2>
               <div className="bike-detail__features">
                 {bike.uniqueFeatures.map((f, i) => (
                   <GlassCard key={i} accentColor={bike.accentColor} className="feature-card">
@@ -116,7 +118,7 @@ export default function BikeDetail() {
           {/* Riding Style */}
           {bike.ridingStyle?.description && (
             <section className="bike-detail__section">
-              <h2 className="bike-detail__section-title">騎乘風格</h2>
+              <h2 className="bike-detail__section-title">{t.bikeDetail.ridingStyle}</h2>
               <GlassCard accentColor={bike.accentColor} className="bike-detail__riding">
                 <div className="riding__terrain">
                   {bike.ridingStyle.terrain?.map((t, i) => (

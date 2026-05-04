@@ -1,7 +1,10 @@
 import { motion } from 'framer-motion';
+import { useLang } from '../../contexts/LanguageContext';
 import './HeroSection.css';
 
 export default function HeroSection() {
+  const { t } = useLang();
+
   return (
     <section className="hero">
       <div className="hero__blob hero__blob--1" />
@@ -13,7 +16,7 @@ export default function HeroSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1, duration: 0.5 }}
         >
-          手工鋼管車 · 自造者精神
+          {t.hero.eyebrow}
         </motion.p>
         <motion.h1
           className="hero__title"
@@ -29,7 +32,7 @@ export default function HeroSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.35, duration: 0.5 }}
         >
-          五台手工鋼管車，五段旅程
+          {t.hero.subtitle}
         </motion.p>
         <motion.div
           className="hero__scroll"
